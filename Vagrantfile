@@ -10,7 +10,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |vagrant|
     config.vm.box = "precise64"
   
     # config.vm.box_url = "http://domain.com/path/to/above.box"
-    # config.vm.network :forwarded_port, guest: 8080, host: 8080
+    config.vm.network :forwarded_port, guest: 25, host: 8025
   
     config.vm.hostname = "mta.local"
 

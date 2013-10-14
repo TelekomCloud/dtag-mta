@@ -80,8 +80,8 @@ class dtagcloud_postfix(
 
 # use dtagcloud postfix to configure postfix
 class { 'dtagcloud_postfix':
-  certificate => '/vagrant/cert.pem',
-  key => '/vagrant/cert.pem',
+#  certificate => '/vagrant/cert.pem',
+#  key => '/vagrant/cert.pem',
 }
 
 #  generic_map => "

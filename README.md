@@ -11,3 +11,11 @@ Goal: have a small isolated vagrant environment that creates a mail-relay for te
 
     librarian-puppet install 
     vagrant up
+
+This setup can support client-side certificates. If you want to use it, uncomment the lines:
+
+    # use dtagcloud postfix to configure postfix
+    class { 'dtagcloud_postfix':
+      certificate => '/vagrant/cert.pem',
+      key => '/vagrant/cert.pem',
+    }

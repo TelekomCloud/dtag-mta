@@ -1,4 +1,8 @@
-include postfix
+#include postfix
+
+class { 'postfix':
+  smtp_listen => '0.0.0.0',
+}
 
 # relay configuration
 postfix::config { 'relay_domains'      : value  => 'localhost telekom.com telekom.de' }
@@ -24,7 +28,7 @@ file { "/etc/postfix/generic":
 #",
   content => "",
   require => File["/etc/postfix"],
-  notify => Service[postfix]
+  notify => Service['postfix']
 }
 
 exec { "/usr/sbin/postmap /etc/postfix/generic":

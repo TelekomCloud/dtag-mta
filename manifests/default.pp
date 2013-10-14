@@ -5,6 +5,7 @@ class dtagcloud_postfix(
   $key = undef,
   $host = '0.0.0.0',
   $generic_map = '',
+  $ratelimit = true,
   ) {
 
   # initialize postfix puppet module
@@ -63,6 +64,16 @@ class dtagcloud_postfix(
     postfix::config{ 'smtp_tls_loglevel'   : value => '1' }
     postfix::config{ 'smtpd_tls_cert_file' : value => $cert_path }
     postfix::config{ 'smtpd_tls_key_file'  : value => $key_path }
+  }
+
+  if $ratelimit == true {
+    postfix::config{ 'default_process_limit'               : value => '100' }
+    postfix::config{ 'smtpd_client_connection_count_limit' : value => '10' }
+    postfix::config{ 'smtpd_client_connection_rate_limit'  : value => '30' }
+    postfix::config{ 'queue_minfree'                       : value => '20971520' }
+    postfix::config{ 'header_size_limit'                   : value => '51200' }
+    postfix::config{ 'message_size_limit'                  : value => '10485760' }
+    postfix::config{ 'smtpd_recipient_limit'               : value => '100' }
   }
 
 }

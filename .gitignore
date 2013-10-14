@@ -4,3 +4,4 @@ postfix
 .tmp
 Puppetfile.lock
 modules
+cert.pem

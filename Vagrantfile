@@ -12,7 +12,11 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   
   config.vm.hostname = "mta.local"
 
-  config.vm.provision :shell, inline: "apt-get update"
+  config.vm.provision :shell, inline: [
+    'apt-get update',
+    'aptitude install -y ruby1.9.3 libaugeas-dev libaugeas-ruby1.9.1 build-essential pkg-config',
+    'gem install ruby-augeas'
+    ].join(' && ')
   config.vm.provision :puppet do |puppet|
     puppet.module_path = "modules"
   end

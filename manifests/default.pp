@@ -23,7 +23,8 @@ file { "/etc/postfix/generic":
 #@puppetmaster.b3.internal.app.telekomcloud.com   nagios@b3.internal.app.telekomcloud.com
 #",
   content => "",
-  require => File["/etc/postfix"]
+  require => File["/etc/postfix"],
+  notify => Service[postfix]
 }
 
 exec { "/usr/sbin/postmap /etc/postfix/generic":

@@ -6,6 +6,17 @@ Puppet module to set up a mail transfer agent for DTAG-Cloud platform.
 
 You will require puppet modules as described in `vagrant/Puppetfile`, or more specifically with version numbers in `vagrant/Puppetfile.lock`.
 
+## Configuration
+
+    class { 'dtag-mta':
+      certificate     => undef,       # a certificate to be used for TLS
+      key             => undef,       # a key for TLS
+                                      # you need to set both to use TLS
+      host            => '0.0.0.0',   # which address to listen on
+      generic_map     => '',          # provide contents for the generic map file
+      ratelimit       => true,        # whether to use ratelimiting
+    }
+
 ## Vagrant
 
 You may try a standalone installation of this module via Vagrant. For this you need:

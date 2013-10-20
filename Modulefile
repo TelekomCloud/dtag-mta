@@ -1,0 +1,6 @@
+name    'dtag-mta'
+version '0.0'
+author  'arlimus'
+license 'Apache 2.0'
+summary 'Mail Transfer Agent configured for DTAG Cloud'
+description 'Mail Transfer Agent configured for DTAG Cloud'

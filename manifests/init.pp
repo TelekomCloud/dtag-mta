@@ -1,6 +1,6 @@
 # class wrapper around puppet-postfix module
 # for dtagcloud
-class dtagcloud_postfix(
+class dtag-mta (
   $certificate = undef,
   $key = undef,
   $host = '0.0.0.0',
@@ -77,14 +77,3 @@ class dtagcloud_postfix(
   }
 
 }
-
-# use dtagcloud postfix to configure postfix
-class { 'dtagcloud_postfix':
-#  certificate => '/vagrant/cert.pem',
-#  key => '/vagrant/cert.pem',
-}
-
-#  generic_map => "
-#nagios@h2072290.stratoserver.net nagios@b3.internal.app.telekomcloud.com
-#@puppetmaster.b3.internal.app.telekomcloud.com   nagios@b3.internal.app.telekomcloud.com
-#",

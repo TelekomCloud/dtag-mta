@@ -1,0 +1,16 @@
+FORGE
+  remote: http://forge.puppetlabs.com
+  specs:
+    puppetlabs/stdlib (4.1.0)
+
+GIT
+  remote: git://github.com/TelekomCloud/puppet-postfix.git
+  ref: fix/change-service-reload-to-service-restart
+  sha: f0d7f6a8b9782923cf24caa265bd2e8ed513ed1e
+  specs:
+    postfix (0.1.0)
+
+DEPENDENCIES
+  postfix (>= 0)
+  puppetlabs/stdlib (>= 0)
+

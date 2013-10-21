@@ -14,6 +14,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |vagrant|
   
     config.vm.hostname = "mta.local"
 
+    # folder bindings
+    config.vm.synced_folder "..", "/etc/puppet/modules/dtag-mta"
+
     config.vm.provision :shell, inline: [
       'apt-get update',
       'aptitude install -y ruby1.9.3 libaugeas-dev libaugeas-ruby1.9.1 build-essential pkg-config',
